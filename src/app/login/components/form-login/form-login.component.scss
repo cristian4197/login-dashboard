@@ -1,0 +1,27 @@
+.container-form{
+    width: 300px;
+    margin: 0 auto;
+    &__icon {
+        height: 120px;
+        text-align: center;
+    }
+
+    &__user {
+        margin-top: 20px;
+    }
+
+    &__password {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+}
+
+.icon-user-login {
+    height: 100%;
+    filter: drop-shadow( 6px 6px 5px #fff);
+}
+
+.btn-login {
+    width: 300px;
+}
