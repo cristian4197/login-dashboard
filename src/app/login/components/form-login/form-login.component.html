@@ -1,32 +1,39 @@
 <div class="container-form text-center">
-    <div class="form-group">
-        <div class="container-form__icon">
-            <i class="fa-solid fa-user-secret icon-user-login"></i>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="container-form__user" >
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-image-portrait"></i></span>
-                <input type="text" class="form-control" placeholder="Ingrese usuario">
-              </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="container-form__password " >
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" class="form-control" placeholder="Ingrese Password">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <div class="container-form__icon">
+                <i class="fa-solid fa-user-secret icon-user-login"></i>
             </div>
-            
         </div>
-    </div>
-
-    <div class="form-group">
-        <div class="container-form__button" >
-            <button type="button" class="btn btn-primary btn-danger">Ingresar</button>
+    
+        <div class="form-group">
+            <div class="container-form__user" >
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-image-portrait"></i></span>
+                    <input type="text" class="form-control" formControlName="user" placeholder="Ingrese usuario"
+                    maxlength="3" minlength="3">
+                  </div>
+            </div>
         </div>
-    </div>
+    
+        <div class="form-group">
+            <div class="container-form__password " >
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Ingrese Password"
+                    maxlength="3" minlength="3">
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="container-form__button" >
+                <button type="button" class="btn btn-primary btn-danger"
+                [disabled]="form.invalid"
+                (click)="validateLogin()">Ingresar</button>
+            </div>
+        </div>
+    </form>
+   
 </div>

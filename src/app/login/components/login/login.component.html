@@ -1,7 +1,13 @@
-<div class="container-login">
+<div class="container-login" *ngIf="!openLoader">
     <div class="container-login__title">
         <h1>Demo App</h1>
     </div>
 
-    <app-form-login></app-form-login>
+    <app-form-login
+    (emitForm)="onEmitFor($event)"></app-form-login>
 </div>
+
+<app-loader 
+[openLoader]="openLoader"></app-loader>
+
+

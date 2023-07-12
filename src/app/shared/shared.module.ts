@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderDashboardComponent } from './header-dashboard/header-dashboard.component';
+import { HeaderDashboardComponent } from './components/header-dashboard/header-dashboard.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
+const COMPONENTS =[
+  HeaderDashboardComponent,
+  LoaderComponent
+]
 
 
 @NgModule({
   declarations: [
-    HeaderDashboardComponent
+    ...COMPONENTS
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ...COMPONENTS
   ]
 })
 export class SharedModule { }
