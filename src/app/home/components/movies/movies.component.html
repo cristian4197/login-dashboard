@@ -1,0 +1,12 @@
+<div class="container-movies">
+    <div class="container-movies__movie" *ngFor="let movie of listMovies">
+        <div class="card">
+            <img class="card-img-top" [src]="movie?.imageurl" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{movie?.name}}</h5>
+              <p class="card-text">{{movie?.description}}</p>
+              <a href="#" class="btn btn-primary">Ir a Detalle</a>
+            </div>
+          </div>
+    </div>
+</div>

@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderDashboardComponent } from './components/header-dashboard/header-dashboard.component';
 import { LoaderComponent } from './components/loader/loader.component';
 
 const COMPONENTS =[
-  HeaderDashboardComponent,
   LoaderComponent
 ]
 
@@ -18,6 +16,7 @@ const COMPONENTS =[
   ],
   exports: [
     ...COMPONENTS
-  ]
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }

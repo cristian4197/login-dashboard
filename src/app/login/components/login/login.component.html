@@ -3,11 +3,13 @@
         <h1>Demo App</h1>
     </div>
 
-    <app-form-login
-    (emitForm)="onEmitFor($event)"></app-form-login>
+    <csv-form-login
+    (emitForm)="onEmitFor($event)">
+    </csv-form-login>
 </div>
 
-<app-loader 
-[openLoader]="openLoader"></app-loader>
+<csv-loader 
+[openLoader]="openLoader">
+</csv-loader>
 
 

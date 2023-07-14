@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormUser } from 'src/app/core/interface/form-user.interface';
 
 @Component({
-  selector: 'app-form-login',
+  selector: 'csv-form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.scss']
 })

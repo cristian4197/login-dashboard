@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header-dashboard',
+  selector: 'csv-header-dashboard',
   templateUrl: './header-dashboard.component.html',
   styleUrls: ['./header-dashboard.component.scss']
 })
