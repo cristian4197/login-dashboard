@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaContent } from 'src/app/core/interface/movies-inteface';
+import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
 import { MOVIESLIST } from '../../utils/content-media.utils';
 
 @Component({
@@ -8,11 +8,13 @@ import { MOVIESLIST } from '../../utils/content-media.utils';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  listMovies:MediaContent[] = [];
+  listMovies:AudioVisualContent[] = [];
   constructor() { }
 
   ngOnInit(): void {
    this.listMovies = MOVIESLIST;
+   console.log("listMovies:",this.listMovies);
+    
   }
 
 }

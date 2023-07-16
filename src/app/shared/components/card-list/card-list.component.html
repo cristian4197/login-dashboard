@@ -1,0 +1,14 @@
+<div class="container-cards">
+    <div class="container-cards__detail" *ngFor="let content of list">
+        <div class="card">
+            <img class="card-img-top" [src]="content?.imageurl" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Nombre: {{content?.name}}</h5>
+              <p class="card-text"><span><b>Género:</b></span>{{content?.gender}}</p>
+              <p class="card-text"><span><b>Año:</b></span> {{content?.releaseYear}}</p>
+              <p class="card-text"><span><b>Descripción:</b></span> {{content?.description}}</p>
+              <a href="#" class="btn btn-primary">Ir a Detalle</a>
+            </div>
+          </div>
+    </div>
+</div>

@@ -8,22 +8,19 @@ import { AnimesComponent } from './animes/animes.component';
 import { HeaderDashboardComponent } from './header-dashboard/header-dashboard.component';
 import { RouterModule } from '@angular/router';
 import { InfoHomeComponent } from './info-home/info-home.component';
-import { SkeletonMovieComponent } from './skeletons/skeleton-movie/skeleton-movie.component';
 
 const COMPONENTS = [
   HomeComponent,
   MoviesComponent,
   SeriesComponent,
   AnimesComponent,
+  InfoHomeComponent,
   HeaderDashboardComponent
 ]
 
 @NgModule({
   declarations: [
-    ...COMPONENTS,
-    InfoHomeComponent,
-    SkeletonMovieComponent   
-   
+    ...COMPONENTS  
   ],
   imports: [
     CommonModule,

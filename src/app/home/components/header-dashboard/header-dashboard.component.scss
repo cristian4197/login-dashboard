@@ -1,6 +1,13 @@
+header{
+    height: 70px;
+}
 .container-nav {
+    position: fixed;
+    z-index: 100;
+    top: 0;
     padding: 20px;
-    background-color: #478DE7;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,47,237,1) 0%, rgba(72,190,213,1) 95%);
     &__logo {
         background-color: #fff;
         border: 2px solid #fff;
@@ -37,6 +44,9 @@ ul {
 }
 
 @media(max-width:767.98px){
+    header {
+        height: 100px;
+    }
     .container-nav {
         padding: 0px;
         &__logo {
