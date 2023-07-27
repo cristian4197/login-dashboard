@@ -2,19 +2,25 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './components/loader/loader.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { SearchContentComponent } from './components/search-content/search-content.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonScrollTopComponent } from './components/button-scroll-top/button-scroll-top.component';
 
 const COMPONENTS = [
   LoaderComponent,
-  CardListComponent
+  CardListComponent,
+  SearchContentComponent,
+  ButtonScrollTopComponent
 ]
 
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     ...COMPONENTS

@@ -59,7 +59,7 @@ export const MOVIESLIST:AudioVisualContent[] = [
     }
 ];
 
-export const SERIES:AudioVisualContent[] = [
+export const SERIESLIST:AudioVisualContent[] = [
     {
         name:'Mandalorian',
         description:'Description Serie',
@@ -118,7 +118,7 @@ export const SERIES:AudioVisualContent[] = [
     }
 ];
 
-export const ANIMES:AudioVisualContent[] = [
+export const ANIMESLIST:AudioVisualContent[] = [
     {
         name:'Naruto',
         description:'Description Anime',

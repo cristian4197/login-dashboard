@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
-import { SERIES } from '../../utils/content-media.utils';
+import { ContentService } from '../../services/content.service';
+import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
+import { TypeContent } from '../../enums/type-content.enum';
 
 @Component({
   selector: 'csv-series',
@@ -9,9 +11,28 @@ import { SERIES } from '../../utils/content-media.utils';
 })
 export class SeriesComponent implements OnInit {
   listSeries:AudioVisualContent[] = [];
-  constructor() { }
+  constructor(private contentService:ContentService) { }
 
   ngOnInit(): void {
-    this.listSeries = SERIES;
+    this.setListOriginalValues();
+   }
+
+   onClickedDeleteItemEVent():void {
+    this.setListOriginalValues();
+   }
+ 
+ 
+   onKeyBackSpaceorDeleteEvent(itemsToFind:string):void {
+    if(itemsToFind === TypeKeyboardEvent.BackSpace){
+      this.setListOriginalValues();
+    } 
+   }
+   
+   onkeyPressItemsTofindEVent(itemsToFind:string):void {
+     this.listSeries = this.contentService.findItems(itemsToFind,TypeContent.Series);
+   }
+ 
+   private setListOriginalValues():void {
+     this.listSeries = this.contentService.copyListOriginal(TypeContent.Series);
    }
 }

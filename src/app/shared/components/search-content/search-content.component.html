@@ -1,0 +1,10 @@
+<div class="container-search">
+    <form [formGroup]="form">
+        <input type="text" placeholder="Buscar contenido"
+        (keydown)="onkeyBackSpaceorDeleteEvent($event)" formControlName="itemToFind"
+        (input)="OnInputEvent()" id="search">
+        <span class="container-search__icon">
+           <a (click)="onClicked()"><i class="fa-solid fa-trash-can fa-lg" style="color: rgba(47,47,237,1)"></i></a> 
+        </span>
+    </form>
+</div>

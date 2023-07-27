@@ -3,13 +3,13 @@
     place-content: center;
     height: 100vh;
     // Colores de fondo
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,47,237,1) 0%, rgba(72,190,213,1) 95%);
+    background: rgb(213,217,217);
+    background: linear-gradient(90deg, rgba(213,217,217,1) 0%, rgba(2,0,36,1) 0%, rgba(138,138,138,1) 95%);
     &__loader {
       width:100px;
       height:100px;
       border-radius:50%;
-      border:16px solid;
+      border:8px solid;
       border-color:#E4E4ED;
       border-right-color: #0f2027;
       animation:loading 1s infinite linear;

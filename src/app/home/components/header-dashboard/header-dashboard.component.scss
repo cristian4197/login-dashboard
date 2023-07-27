@@ -6,8 +6,8 @@ header{
     z-index: 100;
     top: 0;
     padding: 20px;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,47,237,1) 0%, rgba(72,190,213,1) 95%);
+    background: rgb(213,217,217);
+    background: linear-gradient(90deg, rgba(213,217,217,1) 0%, rgba(2,0,36,1) 0%, rgba(138,138,138,1) 95%);
     &__logo {
         background-color: #fff;
         border: 2px solid #fff;
@@ -27,12 +27,13 @@ ul {
             padding: 10px;
             text-decoration: none;
             color: #fff;
-            border: 2px solid #b6ffff;
+            border: 2px solid #fff;
             border-radius: 10px;
             
         }
         a:hover {
-            background-color: #7cdaf9;
+            background-color: rgba(47,47,237,1);
+            color: #fff;
             cursor: pointer;
         }
     }
