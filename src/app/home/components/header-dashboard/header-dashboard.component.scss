@@ -1,8 +1,9 @@
 header{
-    height: 70px;
+    height: 60px;
 }
 .container-nav {
     position: fixed;
+    height: 60px;
     z-index: 100;
     top: 0;
     padding: 20px;
@@ -45,11 +46,12 @@ ul {
 }
 
 @media(max-width:767.98px){
-    header {
-        height: 100px;
+    header{
+        height: 110px;
     }
     .container-nav {
         padding: 0px;
+        height: 110px;
         &__logo {
             margin-top: 30px;
             margin-left: 12px;

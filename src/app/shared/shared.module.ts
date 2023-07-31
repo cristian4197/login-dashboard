@@ -5,18 +5,20 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { SearchContentComponent } from './components/search-content/search-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonScrollTopComponent } from './components/button-scroll-top/button-scroll-top.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 const COMPONENTS = [
   LoaderComponent,
   CardListComponent,
   SearchContentComponent,
-  ButtonScrollTopComponent
+  ButtonScrollTopComponent,
+  CarouselComponent
 ]
 
 
 @NgModule({
   declarations: [
-    ...COMPONENTS    
+    ...COMPONENTS
   ],
   imports: [
     CommonModule,

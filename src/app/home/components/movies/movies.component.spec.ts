@@ -3,7 +3,7 @@ import { ContentService } from '../../services/content.service';
 import { MoviesComponent } from './movies.component';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 
-describe('MoviesComponent', () => {
+describe('@MoviesComponent', () => {
   let component: MoviesComponent;
   let mockContentService: jasmine.SpyObj<ContentService> = jasmine.createSpyObj('ContentService',['findItems','copyListOriginal']);
 

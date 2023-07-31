@@ -4,7 +4,7 @@ import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 
 
-describe('SeriesComponent', () => {
+describe('@SeriesComponent', () => {
   let component: SeriesComponent;
   let mockContentService: jasmine.SpyObj<ContentService> = jasmine.createSpyObj('ContentService',['findItems','copyListOriginal']);
 

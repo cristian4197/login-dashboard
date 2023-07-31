@@ -1,0 +1,15 @@
+
+.container-carousel {
+    margin: 0px auto;
+}
+img {
+    height: 520px;
+    // La imagen mantiene sus proporciones
+    clip-path: inset(0px 0px 0px 0px);
+}
+
+@media(max-width:767.98px){
+    img {
+        height: 300px;
+    }
+}
