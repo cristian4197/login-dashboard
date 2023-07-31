@@ -1,25 +1,78 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AnimesComponent } from './animes.component';
+import { ContentService } from '../../services/content.service';
+import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
+import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 
-describe('AnimesComponent', () => {
+describe('@AnimesComponent', () => {
   let component: AnimesComponent;
-  let fixture: ComponentFixture<AnimesComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AnimesComponent ]
-    })
-    .compileComponents();
-  });
+  let mockContentService: jasmine.SpyObj<ContentService> = jasmine.createSpyObj('ContentService',['findItems','copyListOriginal']);
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AnimesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new  AnimesComponent(mockContentService);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('When ngOnInit is called', () =>{
+    it('#Should listAnimes length is greater than zero', () => {
+      const response:AudioVisualContent[] = [{
+        name:'Avatar',
+        description:'test',
+        gender:'',
+        imageurl:'',
+        releaseYear:''
+      }];
+      mockContentService.copyListOriginal.and.returnValues(response);
+      component.ngOnInit();
+      expect(component.listAnimes.length).toBeGreaterThan(0);
+    });
+  });
+
+
+  describe('When click event is active', () => {
+    it('#Should call onClickedDeleteItemEVent', () => {
+      const response:AudioVisualContent[] = [{
+        name:'Avatar',
+        description:'test',
+        gender:'',
+        imageurl:'',
+        releaseYear:''
+      }];
+      mockContentService.copyListOriginal.and.returnValues(response);
+      component.onClickedDeleteItemEVent();
+      expect(component.listAnimes.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('When keyPress event is active',() => {
+    it('#Should call onKeyBackSpaceorDeleteEvent', () => {
+      const itemsToFind = TypeKeyboardEvent.BackSpace;
+      const response:AudioVisualContent[] = [{
+        name:'Avatar',
+        description:'test',
+        gender:'',
+        imageurl:'',
+        releaseYear:''
+      }];
+      mockContentService.copyListOriginal.and.returnValues(response);
+      component.onKeyBackSpaceorDeleteEvent(itemsToFind);
+      expect(component.listAnimes.length).toBeGreaterThan(0);
+
+    })
+  });
+
+  describe('When onkeyPressItemsTofindEVent is called',() => {
+    it('#Should listAnimes length is greater than zero',() => {
+      const itemsToFind = 'a';
+      const response:AudioVisualContent[] = [{
+        name:'Avatar',
+        description:'test',
+        gender:'',
+        imageurl:'',
+        releaseYear:''
+      }];
+      mockContentService.findItems.and.returnValues(response);
+      component.onkeyPressItemsTofindEVent(itemsToFind);
+
+      expect(component.listAnimes.length).toBeGreaterThan(0);
+    });
   });
 });

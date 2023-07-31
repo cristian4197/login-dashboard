@@ -1,16 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-
 import { ContentService } from './content.service';
 
-describe('ContentService', () => {
+describe('@ContentService', () => {
   let service: ContentService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ContentService);
+    service = new ContentService();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  describe('When call findItems',() => {
+    it('#Should return objects of AudioVisualContent', () => {
+      const itemsToFind ='a';
+      const typeContent = 'movies';
+      let result;
+      result = service.findItems(itemsToFind,typeContent);
+
+      expect(result.length).toBeGreaterThan(0);
+    });
   });
 });

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
 
 @Component({
@@ -6,11 +6,6 @@ import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss']
 })
-export class CardListComponent implements OnInit {
+export class CardListComponent {
   @Input() list!:AudioVisualContent[];
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

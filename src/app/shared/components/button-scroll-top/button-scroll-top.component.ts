@@ -1,23 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'csv-button-scroll-top',
   templateUrl: './button-scroll-top.component.html',
   styleUrls: ['./button-scroll-top.component.scss']
 })
-export class ButtonScrollTopComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class ButtonScrollTopComponent {
 
   scrollTopZero():void {
-    console.log("Se hizo Click");
-    window.scroll({
-      top: 0
-    });
-    
+    window.scrollTo(0, 0)
   }
 
 }

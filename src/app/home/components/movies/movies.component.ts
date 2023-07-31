@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
-import { MOVIESLIST } from '../../utils/content-media.utils';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 import { ContentService } from '../../services/content.service';
 import { TypeContent } from '../../enums/type-content.enum';

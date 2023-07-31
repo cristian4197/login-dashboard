@@ -1,25 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoaderComponent } from './loader.component';
 
-describe('LoaderComponent', () => {
+describe('@LoaderComponent', () => {
   let component: LoaderComponent;
-  let fixture: ComponentFixture<LoaderComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LoaderComponent ]
-    })
-    .compileComponents();
-  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new LoaderComponent();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('When component is initialized', () => {
+    it('#Should set true to showViewLoader', () => {
+      component.openLoader = true;
+
+      expect(component.showViewLoader).toBeTrue();
+    });
+
+    it('#Should set false to showViewLoader', () => {
+      component.openLoader = false;
+
+      expect(component.showViewLoader).toBeFalse();
+    });
   });
 });

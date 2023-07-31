@@ -16,13 +16,12 @@ export class LoaderComponent {
       this.hiddeLoader();
     }
   }
-  constructor() { }
 
-  showLoader():void {
+  private showLoader():void {
     this.showViewLoader = true;
   }
 
-  hiddeLoader():void {
+  private hiddeLoader():void {
     this.showViewLoader = false;
   }
 

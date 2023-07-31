@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormUser } from 'src/app/core/interface/form-user.interface';
 
@@ -7,7 +7,7 @@ import { FormUser } from 'src/app/core/interface/form-user.interface';
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.scss']
 })
-export class FormLoginComponent implements OnInit {
+export class FormLoginComponent {
   @Output() emitForm = new EventEmitter<FormUser>();
 
   form = this.fb.group(
@@ -18,9 +18,6 @@ export class FormLoginComponent implements OnInit {
   );
 
   constructor(private readonly fb:FormBuilder) { }
-
-  ngOnInit(): void {
-  }
 
   validateLogin():void {
     if (this.form.valid) {

@@ -1,25 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormUser } from 'src/app/core/interface/form-user.interface';
 import { LoginComponent } from './login.component';
+import { LoginPresenter } from './login.presenter';
+import { Router } from '@angular/router';
+import { fakeAsync, tick } from '@angular/core/testing';
 
-describe('LoginComponent', () => {
+describe('@LoginComponent', () => {
   let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
-  });
+  let mockpresenter: jasmine.SpyObj<LoginPresenter> = jasmine.createSpyObj('LoginPresenter',['validateLogin']);
+  let mockRouter: jasmine.SpyObj<Router> = jasmine.createSpyObj('Router',['navigate']);
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new LoginComponent(mockpresenter, mockRouter);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('When login is validte', ()=>{
+    it('#Should navigate to home',fakeAsync(() => {
+
+      const user:FormUser = {
+        user:'csv',
+        password:'123'
+      };
+      mockpresenter.validateLogin.and.returnValue(true);
+
+      component.onEmitFor(user);
+      tick(500);
+
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['home']);
+    }));
+
+    it('#Should close loader',() => {
+      const user:FormUser = {
+        user:'csv',
+        password:'123'
+      };
+      mockpresenter.validateLogin.and.returnValue(false);
+
+      component.onEmitFor(user);
+
+      expect(component.openLoader).toBeFalse();
+    });
   });
 });
