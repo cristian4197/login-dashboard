@@ -3,20 +3,25 @@ import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 import { ContentService } from '../../services/content.service';
 import { TypeContent } from '../../enums/type-content.enum';
+import { AnimesPresenter } from './animes.presenter';
 
 @Component({
   selector: 'csv-animes',
   templateUrl: './animes.component.html',
-  styleUrls: ['./animes.component.scss']
+  styleUrls: ['./animes.component.scss'],
+  providers:[AnimesPresenter]
 })
 export class AnimesComponent implements OnInit {
   listAnimes:AudioVisualContent[] = [];
-  constructor(private contentService:ContentService) { }
+
+  constructor(private presenter:AnimesPresenter) { }
+
+  viewState$ = this.presenter.viewState$;
 
   ngOnInit(): void {
+    this.presenter.run();
     this.setListOriginalValues();
   }
-
 
   onClickedDeleteItemEVent():void {
     this.setListOriginalValues();
@@ -29,10 +34,10 @@ export class AnimesComponent implements OnInit {
   }
   
   onkeyPressItemsTofindEVent(itemsToFind:string):void {
-    this.listAnimes = this.contentService.findItems(itemsToFind,TypeContent.Animes);
+    this.listAnimes = this.presenter.onkeyPressItemsTofindEVent(itemsToFind);
   }
 
   private setListOriginalValues():void {
-    this.listAnimes = this.contentService.copyListOriginal(TypeContent.Animes);
+    this.listAnimes = this.presenter.copyOriginalListValues();
   }
 }
