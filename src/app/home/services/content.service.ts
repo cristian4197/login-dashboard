@@ -32,14 +32,14 @@ export class ContentService {
     return list;
   }
 
-  filterItemsToName(list:AudioVisualContent[],itemsToFind:string,typeContent:string ):AudioVisualContent[]{
+  private filterItemsToName(list:AudioVisualContent[],itemsToFind:string,typeContent:string ):AudioVisualContent[]{
     const originalList = this.copyListOriginal(typeContent);
     list = this.findMatchesOnNameCharacters([...list], itemsToFind);
     //Si no encuentra coincidencia muestra la lista total
     return (list.length>0) ? list : originalList;
   }
 
-  findMatchesOnNameCharacters(list:AudioVisualContent[],itemsToFind:string) {
+  private findMatchesOnNameCharacters(list:AudioVisualContent[],itemsToFind:string) {
     const filter = this.removeBlanksSpace(itemsToFind); // Carácter a buscar en el nombre de los objetos, borrando los espacios en blanco
     const regex = new RegExp(filter, 'i'); // Expresión regular para buscar el carácter, insensible a mayúsculas y minúsculas
     const listFound = list.filter((item) => regex.test(item.name));
