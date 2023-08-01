@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
-import { ContentService } from '../../services/content.service';
-import { TypeContent } from '../../enums/type-content.enum';
+import { MoviesPresenter } from './movies.presenter';
 
 @Component({
   selector: 'csv-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  styleUrls: ['./movies.component.scss'],
+  providers:[MoviesPresenter]  
 })
 export class MoviesComponent implements OnInit {
   listMovies:AudioVisualContent[] = [];
-  constructor(private contentService:ContentService) { }
+
+  constructor(private presenter:MoviesPresenter) { }
+
+  viewState$ = this.presenter.viewState$;
 
   ngOnInit(): void {
+    this.presenter.run();
     this.setListOriginalValues();
   }
-
 
   onClickedDeleteItemEVent():void {
     this.setListOriginalValues();
@@ -29,11 +32,11 @@ export class MoviesComponent implements OnInit {
   }
   
   onkeyPressItemsTofindEVent(itemsToFind:string):void {
-    this.listMovies = this.contentService.findItems(itemsToFind,TypeContent.Movies);
+    this.listMovies = this.presenter.onkeyPressItemsTofindEVent(itemsToFind);
   }
 
   private setListOriginalValues():void {
-    this.listMovies = this.contentService.copyListOriginal(TypeContent.Movies);
+    this.listMovies = this.presenter.copyOriginalListValues();
   }
 
 }

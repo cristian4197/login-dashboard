@@ -1,7 +1,16 @@
-<csv-search-content
-(clickedDeleteItemEVent)="onClickedDeleteItemEVent()"
-(keyBackSpaceorDeleteEvent)="onKeyBackSpaceorDeleteEvent($event)"
-(keyPressItemsTofindEVent)="onkeyPressItemsTofindEVent($event)">
-</csv-search-content>
-<csv-card-list [list]="listMovies">
-</csv-card-list>
+<div [ngStyle]="{display:(viewState$ |async)?.state ==='loaded'? 'block':'none' }">
+    <csv-search-content
+        (clickedDeleteItemEVent)="onClickedDeleteItemEVent()"
+        (keyBackSpaceorDeleteEvent)="onKeyBackSpaceorDeleteEvent($event)"
+        (keyPressItemsTofindEVent)="onkeyPressItemsTofindEVent($event)">
+    </csv-search-content>
+    <csv-card-list [list]="listMovies">
+    </csv-card-list>
+ </div>
+
+ <div [ngStyle]="{display:(viewState$ |async)?.state ==='loading'? 'block':'none' }">
+    <csv-skeleton-card-list
+    [list]="listMovies">
+    </csv-skeleton-card-list>
+ </div>
+
