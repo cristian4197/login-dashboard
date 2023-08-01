@@ -9,7 +9,7 @@
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let item of listHome; let i = index" [class.active]="i === 0">
           <div class="container-img">
-            <img [src]="item?.imageurl" class="d-block w-100" alt="...">
+            <img [src]="item?.imageurl" class="d-block w-100" alt="Image not found">
           </div>
           <div class="carousel-caption d-none d-md-block">
             <h5>{{item?.name}}</h5>
