@@ -6,23 +6,29 @@ import { SearchContentComponent } from './components/search-content/search-conte
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonScrollTopComponent } from './components/button-scroll-top/button-scroll-top.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { SkeletonCardListComponent } from './components/skeletons/skeleton-card-list/skeleton-card-list.component';
+import { SkeletonCarouselComponent } from './components/skeletons/skeleton-carousel/skeleton-carousel.component';
+import { SkeletonModule } from 'primeng/skeleton';
 
 const COMPONENTS = [
   LoaderComponent,
   CardListComponent,
   SearchContentComponent,
   ButtonScrollTopComponent,
-  CarouselComponent
+  CarouselComponent,
+  SkeletonCardListComponent,
+  SkeletonCarouselComponent
 ]
 
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS    
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SkeletonModule
   ],
   exports: [
     ...COMPONENTS
