@@ -1,38 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
-import { ContentService } from '../../services/content.service';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
-import { TypeContent } from '../../enums/type-content.enum';
+import { SeriesPresenter } from './series.presenter';
 
 @Component({
   selector: 'csv-series',
   templateUrl: './series.component.html',
-  styleUrls: ['./series.component.scss']
+  styleUrls: ['./series.component.scss'],
+  providers:[SeriesPresenter]
 })
 export class SeriesComponent implements OnInit {
   listSeries:AudioVisualContent[] = [];
-  constructor(private contentService:ContentService) { }
+
+  constructor(private presenter:SeriesPresenter) { }
+
+  viewState$ = this.presenter.viewState$;
 
   ngOnInit(): void {
+    this.presenter.run();
     this.setListOriginalValues();
-   }
+  }
 
-   onClickedDeleteItemEVent():void {
+  onClickedDeleteItemEVent():void {
     this.setListOriginalValues();
-   }
- 
- 
-   onKeyBackSpaceorDeleteEvent(itemsToFind:string):void {
-    if(itemsToFind === TypeKeyboardEvent.BackSpace){
-      this.setListOriginalValues();
-    } 
-   }
-   
-   onkeyPressItemsTofindEVent(itemsToFind:string):void {
-     this.listSeries = this.contentService.findItems(itemsToFind,TypeContent.Series);
-   }
- 
-   private setListOriginalValues():void {
-     this.listSeries = this.contentService.copyListOriginal(TypeContent.Series);
-   }
+  }
+
+  onKeyBackSpaceorDeleteEvent(itemsToFind:string):void {
+   if(itemsToFind === TypeKeyboardEvent.BackSpace){
+    this.setListOriginalValues();
+   } 
+  }
+  
+  onkeyPressItemsTofindEVent(itemsToFind:string):void {
+    this.listSeries = this.presenter.onkeyPressItemsTofindEVent(itemsToFind);
+  }
+
+  private setListOriginalValues():void {
+    this.listSeries = this.presenter.copyOriginalListValues();
+  }
 }

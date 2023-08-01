@@ -1,15 +1,15 @@
 import { SeriesComponent } from './series.component';
-import { ContentService } from '../../services/content.service';
 import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
+import { SeriesPresenter } from './series.presenter';
 
 
 describe('@SeriesComponent', () => {
   let component: SeriesComponent;
-  let mockContentService: jasmine.SpyObj<ContentService> = jasmine.createSpyObj('ContentService',['findItems','copyListOriginal']);
+  let mockSeriesPresenter: jasmine.SpyObj<SeriesPresenter> = jasmine.createSpyObj('MoviesPresenter',['copyOriginalListValues','run','copyOriginalListValues','onkeyPressItemsTofindEVent']);
 
   beforeEach(() => {
-    component = new  SeriesComponent(mockContentService);
+    component = new  SeriesComponent(mockSeriesPresenter);
   });
 
   describe('When ngOnInit is called', () =>{
@@ -21,7 +21,7 @@ describe('@SeriesComponent', () => {
         imageurl:'',
         releaseYear:''
       }];
-      mockContentService.copyListOriginal.and.returnValues(response);
+      mockSeriesPresenter.copyOriginalListValues.and.returnValues(response);
       component.ngOnInit();
       expect(component.listSeries.length).toBeGreaterThan(0);
     });
@@ -37,7 +37,7 @@ describe('@SeriesComponent', () => {
         imageurl:'',
         releaseYear:''
       }];
-      mockContentService.copyListOriginal.and.returnValues(response);
+      mockSeriesPresenter.copyOriginalListValues.and.returnValues(response);
       component.onClickedDeleteItemEVent();
       expect(component.listSeries.length).toBeGreaterThan(0);
     });
@@ -53,7 +53,7 @@ describe('@SeriesComponent', () => {
         imageurl:'',
         releaseYear:''
       }];
-      mockContentService.copyListOriginal.and.returnValues(response);
+      mockSeriesPresenter.copyOriginalListValues.and.returnValues(response);
       component.onKeyBackSpaceorDeleteEvent(itemsToFind);
       expect(component.listSeries.length).toBeGreaterThan(0);
 
@@ -70,7 +70,7 @@ describe('@SeriesComponent', () => {
         imageurl:'',
         releaseYear:''
       }];
-      mockContentService.findItems.and.returnValues(response);
+      mockSeriesPresenter.onkeyPressItemsTofindEVent.and.returnValues(response);
       component.onkeyPressItemsTofindEVent(itemsToFind);
 
       expect(component.listSeries.length).toBeGreaterThan(0);
