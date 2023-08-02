@@ -1,7 +1,6 @@
 import { fakeAsync, tick } from "@angular/core/testing";
 import { ContentService } from "../../services/content.service";
 import { MoviesPresenter } from "./movies.presenter";
-import { ViewState } from "src/app/core/enums/view-state-app.enum";
 import { AudioVisualContent } from "src/app/core/interface/audio-visual.inteface";
 import { PayloadState } from "src/app/core/interface/view-state.interface";
 

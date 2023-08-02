@@ -24,17 +24,19 @@ export class SeriesPresenter {
         this.delayToTask(500);
     }
 
-    private setViewState(isLoaded:boolean):void {
+    private setSkeletonState(value:boolean):void {
         const currentState = this.viewState.value;
         this.viewState.next({
             ...currentState,
-            state: isLoaded ? ViewState.Loaded: ViewState.Loading
+            payload:{
+                showSkeleton: value
+            }
         });
     }
 
     private delayToTask(miliseconds:number):void {
         timer(miliseconds).pipe(take(1)).subscribe(()=> { 
-            this.setViewState(true);
+            this.setSkeletonState(false);
          });
     }
 
