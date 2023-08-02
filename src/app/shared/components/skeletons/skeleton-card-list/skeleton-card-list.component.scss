@@ -21,19 +21,19 @@
         height: 200px;
     }
     &__name {
-        margin-top: 16px;
+        margin: 16px;
     }
     &__gender {
-        margin-top: 16px;
+        margin: 16px;
     }
     &__year{
-        margin-top: 16px;
+        margin: 16px;
     }
     &__description {
-        margin-top: 16px;
+        margin: 16px;
     }
     &__button {
-        margin-top: 8px;
+        margin: 8px 16px 16px 16px;
     }
 }
 
@@ -50,6 +50,24 @@
         margin: 0 auto;
         &__image {
             height: 150px;
+        }
+        &__body {
+            height: 197px;
+        }
+        &__name {
+            margin: 8px;
+        }
+        &__gender {
+            margin: 8px;
+        }
+        &__year{
+            margin: 8px;
+        }
+        &__description {
+            margin: 8px;
+        }
+        &__button {
+            margin: 8px;
         }
     }
 
