@@ -3,6 +3,7 @@ import { ContentService } from "../../services/content.service";
 import { MoviesPresenter } from "./movies.presenter";
 import { ViewState } from "src/app/core/enums/view-state-app.enum";
 import { AudioVisualContent } from "src/app/core/interface/audio-visual.inteface";
+import { PayloadState } from "src/app/core/interface/view-state.interface";
 
 describe('@MoviesPresenter', () => {
     let presenter: MoviesPresenter;
@@ -13,14 +14,15 @@ describe('@MoviesPresenter', () => {
     });
   
     describe('When run is called', () =>{
-      it('#Should listMovies length is greater than zero',fakeAsync(() => {
+      it('#Should set skeleton to false',fakeAsync(() => {
        presenter.run();
        tick(500);
-        let result = '';
-        presenter.viewState$.subscribe((response)=>{
-            result = response.state
+        let result = true;
+        presenter.viewState$.subscribe(({ payload })=>{
+          const { showSkeleton } = payload as PayloadState;
+          result = showSkeleton;
         });
-       expect(result).toBe(ViewState.Loaded);
+       expect(result).toBeFalse();
       }));
     });
   

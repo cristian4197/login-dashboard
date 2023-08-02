@@ -2,10 +2,18 @@ import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface
 import { MoviesComponent } from './movies.component';
 import { TypeKeyboardEvent } from 'src/app/shared/enums/event-keyboard.enum';
 import { MoviesPresenter } from './movies.presenter';
+import { of } from 'rxjs';
 
 describe('@MoviesComponent', () => {
   let component: MoviesComponent;
-  let mockMoviesPresenter: jasmine.SpyObj<MoviesPresenter> = jasmine.createSpyObj('MoviesPresenter',['copyOriginalListValues','run','copyOriginalListValues','onkeyPressItemsTofindEVent']);
+  let mockMoviesPresenter: jasmine.SpyObj<MoviesPresenter> = jasmine.createSpyObj('MoviesPresenter',['copyOriginalListValues','run','copyOriginalListValues','onkeyPressItemsTofindEVent'],{
+    viewState$:of({
+      state:'loaded',
+      payload:{
+        showSkeleton:false
+      }
+    })
+  });
 
   beforeEach(() => {
     component = new  MoviesComponent(mockMoviesPresenter);
@@ -73,6 +81,17 @@ describe('@MoviesComponent', () => {
       component.onkeyPressItemsTofindEVent(itemsToFind);
 
       expect(component.listMovies.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('When ngOnDestroy is called', () => {
+    it('#Should call unsubscribe', () => {
+      component['viewStateSub'] = of().subscribe();
+      const spy = spyOn(component['viewStateSub'],'unsubscribe');
+
+      component.ngOnDestroy();
+
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
