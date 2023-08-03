@@ -30,8 +30,10 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
   private setSkeletonState():void{
     this.viewStateSub = this.viewState$.subscribe(({ payload }) => {
-      const { showSkeleton } = payload as PayloadState;
-      this.showSkeleton = showSkeleton;
+      if(payload) {
+        const { showSkeleton } = payload as PayloadState;
+        this.showSkeleton = showSkeleton;
+      }
     });
   }
 
