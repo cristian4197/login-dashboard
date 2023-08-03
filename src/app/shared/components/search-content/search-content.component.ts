@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { TypeKeyboardEvent } from '../../enums/event-keyboard.enum';
 import { AbstractControl, FormBuilder } from '@angular/forms';
 
@@ -13,6 +13,8 @@ export class SearchContentComponent implements OnInit {
   @Output() keyBackSpaceorDeleteEvent = new EventEmitter<string>();
 
   @Output() keyPressItemsTofindEVent = new EventEmitter<string>();
+
+  @Input() showSkeleton = false;
 
   form = this.fb.group(
     {
