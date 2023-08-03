@@ -9,6 +9,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { SkeletonCardListComponent } from './components/skeletons/skeleton-card-list/skeleton-card-list.component';
 import { SkeletonCarouselComponent } from './components/skeletons/skeleton-carousel/skeleton-carousel.component';
 import { SkeletonModule } from 'primeng/skeleton';
+import { SkeletonSearchContentComponent } from './components/skeletons/skeleton-search-content/skeleton-search-content.component';
 
 const COMPONENTS = [
   LoaderComponent,
@@ -17,13 +18,14 @@ const COMPONENTS = [
   ButtonScrollTopComponent,
   CarouselComponent,
   SkeletonCardListComponent,
-  SkeletonCarouselComponent
+  SkeletonCarouselComponent,
+  SkeletonSearchContentComponent
 ]
 
 
 @NgModule({
   declarations: [
-    ...COMPONENTS    
+    ...COMPONENTS
   ],
   imports: [
     CommonModule,
