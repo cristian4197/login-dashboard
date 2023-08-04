@@ -23,6 +23,10 @@ p {
     margin-bottom: 8px;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 @media(max-width:767.98px){
     .card {
         width: 290px;
@@ -37,30 +41,17 @@ p {
         row-gap:20px;
         margin-top: 20px;
         grid-template-columns: repeat(1, 1fr);
-        // &__detail{
-        //     height: max-content;
-        // }
     }
 }
 @media(min-width:768px) and (max-width:1199.98px){
-    // .card {
-    //     width: 320px;
-    //     margin: 0 auto;
-    // }
     .container-cards{
         margin-top: 20px;
         grid-template-columns: repeat(2, 1fr);
-        // &__detail{
-        //     height: max-content;
-        // }
     }
 }
 @media(min-width:1200px){
   
     .container-cards{
         grid-template-columns: repeat(3, 1fr);
-        // &__detail{
-        //     height: max-content;
-        // }
     }
 }
