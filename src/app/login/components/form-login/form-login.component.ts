@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { FormUser } from 'src/app/core/interface/form-user.interface';
 
 @Component({
@@ -17,7 +17,7 @@ export class FormLoginComponent {
     }
   );
 
-  constructor(private readonly fb:FormBuilder) { }
+  constructor(private readonly fb:UntypedFormBuilder) { }
 
   validateLogin():void {
     if (this.form.valid) {

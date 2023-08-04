@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { TypeKeyboardEvent } from '../../enums/event-keyboard.enum';
-import { AbstractControl, FormBuilder } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'csv-search-content',
@@ -22,7 +22,7 @@ export class SearchContentComponent implements OnInit {
     }
   );
 
-  constructor(private renderer: Renderer2,private fb:FormBuilder, private elementRef: ElementRef) { }
+  constructor(private renderer: Renderer2,private fb:UntypedFormBuilder, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }
