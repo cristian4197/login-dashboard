@@ -8,4 +8,5 @@ import { AudioVisualContent } from 'src/app/core/interface/audio-visual.inteface
 })
 export class CarouselComponent {
   @Input() listHome!:AudioVisualContent[];
+  @Input() showSkeleton = false;
 }
