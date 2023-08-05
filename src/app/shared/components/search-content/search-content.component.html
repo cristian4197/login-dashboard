@@ -1,4 +1,4 @@
-<div class="container-search" *ngIf="!showSkeleton">
+<div class="container-search" *ngIf="!showSkeleton; else skeletonSearchContent">
     <form [formGroup]="form">
         <input type="text" placeholder="Buscar contenido"
         (keydown)="onkeyBackSpaceorDeleteEvent($event)" formControlName="itemToFind"
@@ -9,5 +9,8 @@
     </form>
 </div>
 
-<csv-skeleton-search-content *ngIf="showSkeleton">
-</csv-skeleton-search-content>
+<ng-template #skeletonSearchContent>
+    <csv-skeleton-search-content>
+    </csv-skeleton-search-content>
+</ng-template>
+

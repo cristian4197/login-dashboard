@@ -1,4 +1,4 @@
-<div id="carouselExampleCaptions" class="carousel slide container-carousel" *ngIf="!showSkeleton">
+<div id="carouselExampleCaptions" class="carousel slide container-carousel" *ngIf="!showSkeleton; else skeletonCarousel">
     <!-- Botones inferiores de Slider -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions"  aria-current="true"
@@ -28,5 +28,7 @@
       </button>
 </div>
 
-<csv-skeleton-carousel *ngIf="showSkeleton">
-</csv-skeleton-carousel>
+<ng-template #skeletonCarousel>
+  <csv-skeleton-carousel>
+  </csv-skeleton-carousel>
+</ng-template>

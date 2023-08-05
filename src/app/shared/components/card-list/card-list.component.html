@@ -1,4 +1,4 @@
-<div class="container-cards" *ngIf="!showSkeleton">
+<div class="container-cards" *ngIf="!showSkeleton; else skeletonCardList">
     <div class="container-cards__detail" *ngFor="let content of list">
         <div class="card">
             <img class="card-img-top" [src]="content?.imageurl" alt="Card image cap">
@@ -13,8 +13,11 @@
     </div>
 </div>
 
-<csv-skeleton-card-list *ngIf="showSkeleton"
+<ng-template #skeletonCardList>
+  <csv-skeleton-card-list
     [list]="list">
-</csv-skeleton-card-list>
+  </csv-skeleton-card-list>
+</ng-template>
+
 
 <csv-button-scroll-top></csv-button-scroll-top>
